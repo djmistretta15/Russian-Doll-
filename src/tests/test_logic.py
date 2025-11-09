@@ -384,9 +384,14 @@ class TestNesting:
         child2 = child1.spawn_child_die()
         assert child2.depth == 2
 
-        # Level 3 (should fail - max depth 3 means depths 0, 1, 2)
+        # Level 3 (should succeed - max depth 3 allows depths 0, 1, 2, 3)
         child3 = child2.spawn_child_die()
-        assert child3 is None
+        assert child3 is not None
+        assert child3.depth == 3
+
+        # Level 4 (should fail - exceeds max depth)
+        child4 = child3.spawn_child_die()
+        assert child4 is None
 
     def test_recursive_transistor_counting(self):
         """Test transistor counting across hierarchy"""

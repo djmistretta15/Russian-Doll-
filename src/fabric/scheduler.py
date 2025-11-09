@@ -14,7 +14,7 @@ Execution Model:
 - Results propagate back up the hierarchy
 """
 
-from typing import List, Dict, Any, Optional, Callable
+from typing import List, Dict, Any, Optional, Callable, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
 import time
